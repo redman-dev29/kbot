@@ -10,7 +10,7 @@ lint:
 	golint
 
 test:
-	go test -v
+	./kbot start
 
 get:
 	go get
