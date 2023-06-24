@@ -5,8 +5,9 @@ replicaCount: 1
 image:
   repository: staszinch
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "v1.0.0-d5c5aa2"
-  arch: ""
+  tag: $(shell git describe --tags --abbrev=0)-$(shell git rev-parse --short HEAD)
+  os: linux
+  arch: amd64
 secret:
   name: kbot
   tokenKey: token
