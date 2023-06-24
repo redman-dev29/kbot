@@ -5,8 +5,8 @@ replicaCount: 1
 image:
   repository: ghcr.io/stas-zinchenko
   # Overrides the image tag whose default is the chart appVersion.
-  tag: v1.0.0-5e70523
-  os: linux
+  tag: v1.0.0-c803814
+  os: ""
   arch: ""
 secret:
   name: kbot
