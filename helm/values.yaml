@@ -5,7 +5,7 @@ replicaCount: 1
 image:
   repository: staszinch
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "v1.0.0-d5c5aa2"
+  tag: "v1.0.0-c13e593"
   arch: ""
 secret:
   name: kbot
