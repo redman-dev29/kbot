@@ -3,11 +3,10 @@
 # Declare variables to be passed into your templates.
 replicaCount: 1
 image:
-  repository: staszinch
-  # Overrides the image tag whose default is the chart appVersion.
-  tag: v1.0.0-71a402d
+  repository: ghcr.io/stas-zinchenko
+  tag: $(shell git describe --tags --abbrev=0)-$(shell git rev-parse --short HEAD)
   os: linux
-  arch: ""
+  arch: amd64
 secret:
   name: kbot
   tokenKey: token
