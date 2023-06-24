@@ -2,7 +2,7 @@ name: KBOT-CICD
 
 on: 
   push:
-    branches: [main, develop ]
+    branches: develop
 
 jobs:
   ci:
@@ -49,7 +49,7 @@ jobs:
 
     - uses: mikefarah/yq@master
       with:
-        cmd: yq -i '.image.tag=strenv(VERSION) | .image.arch=strenv(TARGETARCH)' helm/values.yaml
+        cmd: yq -i '.image.tag=strenv(VERSION) | .image.os=strenv(TARGETOS) | .image.arch=strenv(TARGETARCH)' helm/values.yaml
     - run: |
         git config user.name github-actions
         git config user.email github-actions@github.com
