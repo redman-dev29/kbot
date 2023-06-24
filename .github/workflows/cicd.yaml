@@ -34,8 +34,6 @@ jobs:
         env:
           APP: "kbot"
           REGISTRY: ${{ secrets.GHCR_USERNAME }}
-        #with:
-        #  password: ${{ secrets.GHCR_TOKEN }}
         run: make image push
       
       - name: Clean
