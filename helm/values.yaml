@@ -4,9 +4,9 @@
 replicaCount: 1
 image:
   repository: ghcr.io/stas-zinchenko
-  tag: $(shell git describe --tags --abbrev=0)-$(shell git rev-parse --short HEAD)
+  tag: v1.0.0-e7b4872
   os: linux
-  arch: amd64
+  arch: ""
 secret:
   name: kbot
   tokenKey: token
