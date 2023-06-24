@@ -1,4 +1,4 @@
-module github.com/redman-dev29/kbot
+module github.com/stas-zinchenko/kbot
 
 go 1.20
 
