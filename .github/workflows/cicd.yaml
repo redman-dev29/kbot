@@ -33,11 +33,13 @@ jobs:
       - name: Build&Push
         env:
           APP: "kbot"
-          REGISTRY: ${{ secrets.DOCKERHUB_USERNAME }}
-        run: make image push TARGETARCH=$TARGETARCH
+          REGISTRY: ${{ secrets.GHCR_USERNAME }}
+        with:
+          password: ${{ secrets.GHCR_TOKEN }}
+        run: make image push
       
       - name: Clean
-        run: make clean TARGETARCH=$TARGETARCH
+        run: make clean
   cd:
     name: CD
     needs: ci
