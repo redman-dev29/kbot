@@ -36,4 +36,4 @@ jobs:
           fetch-depth: 0
 
       - name: Push
-        run: 
+        run: make push
