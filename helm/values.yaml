@@ -1,10 +1,7 @@
-# Default values for helm.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
 replicaCount: 1
 image:
   repository: ghcr.io/stas-zinchenko
-  tag: "v1.0.0-33a2e9a"
+  tag: ""
   os: linux
   arch: amd64
 secret:
