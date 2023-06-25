@@ -4,8 +4,7 @@
 replicaCount: 1
 image:
   repository: ghcr.io/stas-zinchenko
-  # Overrides the image tag whose default is the chart appVersion.
-  tag: $(shell git describe --tags --abbrev=0)-$(shell git rev-parse --short HEAD)
+  tag: ""
   os: linux
   arch: amd64
 secret:
