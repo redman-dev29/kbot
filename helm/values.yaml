@@ -4,7 +4,7 @@
 replicaCount: 1
 image:
   repository: ghcr.io/stas-zinchenko
-  tag: ""
+  tag: "v1.0.0-33a2e9a"
   os: linux
   arch: amd64
 secret:
