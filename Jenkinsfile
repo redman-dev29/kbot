@@ -8,8 +8,8 @@ pipeline {
     stages {
         stage('Linux') {
             steps {
-                sh 'make build'
                 echo "Build for platform ${params.OS}"
+                sh 'make build'
                 echo "Build for arch: ${params.ARCH}"                  
             }
         }
