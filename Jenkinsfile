@@ -19,7 +19,7 @@ pipeline {
         stage("Test"){
             steps {
                 echo 'Test Begin'
-                sh 'make test'
+                /bin/bash 'make test'
             }
         }
 
