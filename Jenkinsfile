@@ -6,6 +6,13 @@ pipeline {
 
     }
     stages {
+        stage("Test"){
+            steps {
+                echo 'Test Begin'
+                sh 'make test'
+            }
+        }
+
         stage('Linux') {
             steps {
                 echo "Build for platform ${params.OS}"

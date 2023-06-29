@@ -13,6 +13,15 @@ test:
 get:
 	go get
 
+linux:
+	${MAKE} build TARGETOS=linux TARGETARCH=${TARGETARCH}
+
+macOS:
+	${MAKE} build TARGETOS=darwin TARGETARCH=${TARGETARCH}
+
+windows:
+	${MAKE} build TARGETOS=windows TARGETARCH=${TARGETARCH} CGO_ENABLED=1
+
 build: format get
 	CGO_ENABLED=0 GOOS=${TARGETOS} GOARCH=${TARGETARCH} go build -v -o kbot -ldflags "-X="github.com/stas-zinchenko/kbot/cmd.appVersion=${VERSION}
 
