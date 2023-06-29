@@ -1,33 +1,23 @@
 pipeline {
     agent any
-    environment {
-        REPO = 'https://github.com/stas-zinchenko/kbot'
-        BRANCH = 'main'
-    }
     parameters {
-        choice(name: 'OS', choices: ['Linux', 'Darwin', 'Windows', 'All'], description: 'Pick OS')
-        choice(name: 'ARCH', choices: ['amd64', 'arm64'], description: 'Pick ARCH')
+
+        choice(name: 'OS', choices: ['linux', 'darwin', 'windows'], description: 'Pick OS')
+        choice(name: 'ARCH', choices: ['arm64', 'amd64'], description: 'Pick ARCH')
+
     }
     stages {
-        stage("clone") {
+        stage("test") {
             steps {
-            echo 'CLONE REPOSITORY'
-                git branch: "${BRANCH}", url: "${REPO}"
+                echo 'TEST EXECUTION STARTED'
+                sh 'make test'
             }
         }
-        
-        stage("Test"){
-            steps {
-                echo 'Test Begin'
-                /bin/bash 'make test'
-            }
-        }
-
-        stage('Linux') {
+        stage('build') {
             steps {
                 echo "Build for platform ${params.OS}"
-                sh 'make build'
-                echo "Build for arch: ${params.ARCH}"                  
+                echo "Build for arch: ${params.ARCH}"
+                sh "make build TARGETOS=${params.OS} TARGETARCH=${params.ARCH}"
             }
         }
     }
